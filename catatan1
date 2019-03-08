@@ -1,0 +1,49 @@
+Stack(tumpukan) adalah koleksi berurut dari item-item dimana penambahan item baru dan penghapusan item yang telah ada selalu terjadi di ujung yang sama. Ujung ini dinamakan sebagai “top.” Ujung berlawanan dari top dikenal sebagai “base.” Stack diurutkan mengikuti konsep LIFO (last in first out). 
+Berikut ini adalah beberapa operasi terhadap stack:
+    stack() membuat suatu stack baru yang kosong. Tidak memerlukan parameter dan mengembalikan suatu stack kosong. 
+    push(item) menambahkan suatu item baru ke atas (top) dari stack. Perlu item dan tidak mengembalikan apapun. 
+    pop() menghapus item teratas dari stack. Tidak perlu parameter dan mengembalikan item. Stack berubah. 
+    peek() mengembalikan top item dari stack tetapi tidak menghapusnya. Tidak memerlukan parameter dan stack tidak berubah. 
+    isEmpty() memeriksa apakah stack dalam keadaan kosong. Tidak memerlukan parameter dan mengembalikan nilai boolean.
+    size() mengembalikan jumlah item di dalam stack. Tidak memerlukan parameter dan mengembalikan suatu integer.
+   
+   
+def Stack():
+    s=[]
+    return (s)
+def push(s,data):
+    s.append(data)
+    return data
+def pop(s):
+    data=s.pop()
+    return (data)
+def peek(s):
+    return(s[len(s-1)])
+def isEmpty(s):
+    return (s==[])
+    
+
+
+mengubah bilangan biasa ke bilangan biner dg menggunakan stack:
+
+def konversbiner(bil):
+    biner=stack()
+    hasil=""
+    while bil>0:
+        push(biner,angka%2)
+        angka//=2
+    while not (isEmpty(biner)):
+        hasil=hasil+str(pop(biner))
+    return hasil
+    
+mengubah bilangan biasa ke bilangan okta dg menggunakan stack:
+
+def konversokta(bil):
+    okta=stack()
+    hasil=""
+    while bil>0:
+        push(okta,bil%8)
+        bil//=8
+    while not (isEmpty(okta)):
+        hasil=hasil+str(pop(okta))
+    return hasil
