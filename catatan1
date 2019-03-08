@@ -22,7 +22,31 @@ def peek(s):
 def isEmpty(s):
     return (s==[])
     
+fungsi untuk membalikkan huruf pada kata(bukan ala malang):
 
+def balik(teks):
+    s=Stack()
+    hasil=""
+    for i in range(len(teks)):
+        push(a,teks[i])
+    for i in range (len(teks)):
+        hasil = hasil+ pop(s)
+    return hasil
+    
+memeriksa keseimbangan tanda kurung :
+
+def cek():
+    ck=stack()
+    for i in (teks):
+        if i =="(":
+            push(ck,i)
+        elif (i==")") and (not(isEmpty(ck))):
+            pop(ck)
+        elif (i==")" and (isEmpty(ck)):
+              error=("kelebihan kurang tutup")
+        else:
+              error=("kelebihan kurung buka")
+    return isEmpty(ck),error
 
 mengubah bilangan biasa ke bilangan biner dg menggunakan stack:
 
@@ -47,3 +71,52 @@ def konversokta(bil):
     while not (isEmpty(okta)):
         hasil=hasil+str(pop(okta))
     return hasil
+
+
+INFIX POSTFIX AND PREFIX
+
+prefix= sebelum dua buah operan
+postfix setelah 2 buah operan
+
+infix= A+B*C (postfix)=ABC*+ (prefix)=+A*BC
+infix= A+B*C+D (postfix)=ABC*+D+ (prefix)=++A*BCD
+Dst...
+
+low presedence = + -
+high presedence = * /
+
+yang dipop lbih tinggi ex: *>+
+klo yang lebih tinggi dipop kalo yang lebih rendah di push
+operan masuk output
+operator --> push klo lebih rendah
+yang dibaca kurung,operan operator
+kurungbuka==push,kurungtutup===pop sampe nemu kurung buka
+
+(CODE DIBAWAH MASIH DALAM TAHAP pengembangan DIKARENAKAN ERROR) 
+
+def infixtopostfix(infix):
+    postfix=""
+    a= Stack()
+    for i in (infix):
+        if i in "ABCDE":
+            postfix += i
+        elif i in "+-":
+            if a.isEmpty():
+                a.push(i)
+            elif a.top()=="(":
+                a.push(i)
+        elif i in "*/":
+            if a.isEmpty():
+                a.push(i)
+            elif a.top() in "+-(":
+                a.push(i)
+        elif i=="(":
+            a.push(i)
+        elif i==")":
+            while a.top() is not "(" :
+                postfix+= a.pop
+                a.pop
+        else:
+            print("error")
+    return postfix
+    
