@@ -1,0 +1,233 @@
+Queue atau antrian adalah suatu koleksi item berurut dimana penambahan item baru terjadi di satu ujung bernama “ekor” (rear) dan penghapusan terjadi pada ujung lainnya yang dinamakan “kepala” (front). Queues menggunakan pengurutan FIFO. Berikut ini adalah beberapa operasi Queue:
+	queue() membuat suatu antrian baru yang kosong. Tidak memerlukan parameter dan mengembalikan suatu antrian kosong.
+	enqueue(item) menambahkan suatu item baru ke ujung saru antrian. Perlu item dan tidak mengembalikan sesuatu.
+	dequeue() menghapus item depan dari antrian. Tidak memerlukan parameter dan mengembalikan itemnya. Antrian termodifikasi.
+	isEmpty() menguji untuk melihat apakah antrian dalam keadaan kosong. Tidak memerlukan parameter dan mengembalian nilai boolean.
+	size() mengembalikan jumlah item yang ada di dalam antrian. Tidak memerlukan parameter dan mengembalikan suatu integer.
+	
+def queue():
+    q=[]
+    return (q)
+def enqueue(q,data):
+    q.insert(0,data)
+    return (q)
+def dequeue(q):
+    data=q.pop()
+    return(data)
+def isEmpty(q):
+    return(q==[])
+def size(q):
+    return(len(q))
+
+Deque (Deantrian), dikenal juga sebagai antrian berujung dua (double-ended), 
+adalah suatu koleksi item terurut serupa dengan queue. 
+Perbedaannya? Sifat tidak terikat untuk penambahan dan penghapusan item-item dari antrian. 
+Item baru dapat ditambahkan ke depan atau belakang. Karena itu, item yang ada dapat dihapuskan dari salah satu ujung. 
+Struktur linier hibrida ini menyediakan semua kapabilutas stack dan antrian dalam satu struktur data.
+
+Berikut ini adalah beberapa operasi yang dapat diberlakukan terhadap deque:
+		deque() membuat suatu deque baru yang kosong. Tidak perlu parameter danmengembalikan suatu deque kosong. addFront(item) menambahkan suatu item baru ke depan dari deque. Perlu item dan tidak mengembalikan apapun.
+		addRear(item) menambahkan suatu item baru ke ekor dari deque. Perlu item dam tidak mengembalikan sesuatu.
+		removeFront() menghapus item depan dari deque. Tidak perlu parameter dan mengembalikan item. Deque termodifikasi.
+		removeRear() menghapus item ujung (ekor) dari deque. Tidak perlu parameter dan mengembalikan item. Deque berubah.
+		isEmpty() menguji apakah deque dalam kondisi kosong. Tidak perlu parameter dan mengembalikan suatu nilai boolean.
+		size() mengembalikan jumlah item dalam deque. Tidak perlu parameter dan mengembalikan suatu integer.
+		
+		#rumus deque
+def createDeque():
+    d=[]
+    return (d)
+def addFront(d,data):
+    d.insert(0,data)
+    return (d)
+def removeFront(d):
+    data=d.pop()
+    return(data)
+def addRear(d,data):
+    d.insert(data)
+    return (d)
+def removeRear(d):
+    data=d.pop()
+    return(data)
+def isEmpty(d):
+    return(d==[])
+def size(d):
+    return(len(d))
+		
+		
+TYPE DATA CLASS
+type data buatan sendiri yang berisikan banyak fungsi atau method:
+
+class BilanganKompleks:
+    def __init__(self,a,b):
+        self.re=a
+        self.im=b
+    def display(self):
+        print(self.re,"+",self.im,"i")
+    def display2(self):
+        temp=(str(self.re)+"+"+str(self.im)+"i")
+        return temp
+    def __str__(self):
+        return str(self.re)+" + "+str(self.im)+"i"
+    def addNumb(self,num1,num2):
+        self.re=num1.re+num2.re
+        self.im=num1.im+num2.im
+    def addnum2(self,num):
+        self.re=self.re+num.re
+        self.im=self.im+num.im
+    def addkompleks(self,obj):
+        a=self.re+obj.re
+        b=self.im+obj.im
+        return BilanganKompleks(a,b)
+    def __add__(self,obj):
+        a=self.re+obj.re
+        b=self.im+obj.im
+        return BilanganKompleks(a,b)
+    def __mul__(self,obj):
+        a=self.re*obj.re
+        b=self.re*obj.im+obj.re*self.im
+        c=self.im*obj.re*-1
+        a=a+c
+        return BilanganKompleks(a,b)
+    def __sub__(self,obj):
+        a=self.re-obj.re
+        b=self.im=obj.im
+        return BilanganKompleks(a,b)
+
+
+Single Linked List merupakan sebuah tempat yang disediakan pada satu area memori tertentu untuk menyimpan data yang dikenal dengan sebutan node atau simpul. 
+Setiap node memiliki pointer yang menunjuk ke simpul berikutnya sehingga terbentuk satu untaian, dengan demikian hanya diperlukan sebuah variabel pointer. Susunan berupa untaian semacam ini disebut Single Linked List. Biasanya Linked List pada node terakhir akan menunjuk ke NULL, dimana  NULL memilik nilai khusus yang artinya tidak menunjuk ke mana-mana.
+
+Pembuatan Single Linked List dapat menggunakan 2 metode:
+– LIFO (Last In First Out), aplikasinya : Stack (Tumpukan)
+– FIFO (First In First Out), aplikasinya : Queue (Antrean)
+
+
+    
+class Nodes:
+    def __init__(self,init_data):
+        self.data = init_data
+        self.next = None
+    def getData(self):
+        return self.data
+    def getNext(self):
+        return self.next
+    def setData(self,newdata):
+        self.data = newdata
+    def setNext(self,newnext):
+        self.next = new_next
+
+class LinkedList(object):
+    def __init__(self, head=None):
+        self.head = head
+   
+    # Menambah node baru
+    def insert(self, data):
+        # Inisialisasi node baru
+        new_node = Node(data)
+        # Menunjuk node berikutnya dari node baru ke node yang ditunjuk oleh HEAD
+        new_node.set_next(self.head)
+        # HEAD menunjuk ke node baru
+        self.head = new_node
+ 
+    # Menghitung panjang list
+    def size(self):
+        # Membuat pointer baru menunjuk ke node yang ditunjuk oleh HEAD
+        current = self.head
+        count = 0
+        # Perulangan untuk menghitung node
+        while current:
+            count += 1
+            current = current.get_next()
+        return count
+ 
+    # Mencari sebuah data pada list
+    def search(self, data):
+        # Membuat pointer baru menunjuk ke node yang ditunjuk oleh HEAD
+        current = self.head
+        found = False
+        # Perulangan mencari node yang dicari
+        while current and found is False:
+            if current.get_data() == data:
+                found = True
+            else:
+                current = current.get_next()
+               
+        return found
+ 
+    # Menghapus node
+    def delete(self, data):
+        current = self.head
+        previous = None
+        found = False
+        while current and found is False:
+            if current.get_data() == data:
+                found = True
+            else:
+                previous = current
+                current = current.get_next()
+        if current is None:
+            raise ValueError("Data not in list")
+        if previous is None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+ 
+    # Menampilkan isi dari list
+    def showData(self):
+        os.system('clear')
+        print ("Tampilkan list data:")
+        print ("Node -> Next Node")
+        current_node = self.head
+        while current_node is not None:
+            print (current_node.data),
+            print ("   ->"),
+            print (current_node.next_node.data) if hasattr(current_node.next_node, "data") else None
+           
+            current_node = current_node.next_node
+				
+				
+	class Unorderedlist :
+    def __init__(self) :
+        self.head = None
+    def show (self) :
+        current = self.head
+        print("[", end = "")
+        while current != None :
+            print(current.getData(), end = "],")
+            current = current.getNext()
+        print("None")
+    def isEmpty (self) :
+        return self.head == None
+    def add (self,item) :
+        temp = Node(item)
+        temp.setNext(self.head)
+        self.head = temp
+    def size (self) :
+        current = self.head
+        count = 0
+        while current != None :
+            count = count + 1
+            current = current.getNext()
+        return count
+    def search (self,item) :
+        current = self.head
+        found = False
+        while current != None and not found :
+            if current.getData() == item :
+                found = True
+            else:
+                current = current.getNext()
+        return found
+    def remove (self,item) :
+        current = self.head
+        previous = None
+        found = False
+        while current != None and not found :
+            if current.getData() == item :
+                found = True
+            else :
+                previous = current
+                current = current.getNext()
+                if previous==None:
+                    self.head = current.getNext()
